@@ -88,6 +88,12 @@ ol {
   outline: none;
 }
 
+.search-form__label:has(:focus-visible) {
+  border-radius: 0;
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
 .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -116,14 +122,9 @@ ol {
   inline-size: 225px;
 }
 
-.search-form__textfield:focus{
+.search-form__textfield:focus,
+.search-form__textfield:focus-visible {
   outline: none;
-}
-
-.search-form__label:has(:focus-visible) {
-  border-radius: 0;
-  outline: 1px solid #fff;
-  outline-offset: 2px;
 }
 
 .search-form__textfield:active {
@@ -136,6 +137,11 @@ ol {
   gap: 15px;
 }
 
+.search-form__checkbox:focus,
+.search-form__checkbox:focus-visible {
+  outline: none;
+}
+
 .search-form__pseudo-checkbox {
   display: flex;
   justify-content: center;
@@ -145,7 +151,8 @@ ol {
   block-size: 19px;
 }
 
-.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::before,
+.search-form__label:active .search-form__pseudo-checkbox::before {
   content: "";
   border: 1px solid #1b1919;
   background-color: #fff;
@@ -208,7 +215,7 @@ ol {
 
 .content__list {
   position: relative;
-  overflow: hidden scroll;
+  overflow: hidden auto;
   block-size: 298px;
 }
 
@@ -273,6 +280,6 @@ ol {
 }
 
 .more-button {
-  inline-size: 100%;
   margin: 3px;
+  inline-size: 100%;
 }
